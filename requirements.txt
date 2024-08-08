@@ -518,3 +518,4 @@ folium==0.17.0
 etils==1.7.0
 h5py==3.11.0
 spacy-legacy==3.0.12
+pip==24.2
