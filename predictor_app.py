@@ -3,13 +3,19 @@ import joblib
 import pandas as pd
 import os
 import pickle
+from catboost import CatBoostRegressor
+
 
 
 model_path = os.path.abspath(os.path.join(os.getcwd(), "catboost_model.pkl"))
 scaler_path = os.path.abspath(os.path.join(os.getcwd(), "Scaler.pkl"))
 
-with open(model_path, 'rb') as f:
-    cat_model = pickle.load(f)
+# with open(model_path, 'rb') as f:
+#     cat_model = pickle.load(f)
+
+# Load the model using CatBoost's method
+cat_model = CatBoostRegressor()
+cat_model.load_model(model_path)
 
 
 with open(scaler_path, 'rb') as f:
