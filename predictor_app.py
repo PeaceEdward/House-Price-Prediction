@@ -1,11 +1,20 @@
 import streamlit as st
 import joblib
 import pandas as pd
+import os
+import pickle
 
 
-# Load the model
-model = joblib.load('catboost_model.pkl')
-scaler=joblib.load('Scaler.pkl')
+model_path = os.path.abspath(os.path.join(os.getcwd(), "catboost_model.pkl"))
+scaler_path = os.path.abspath(os.path.join(os.getcwd(), "Scaler.pkl"))
+
+with open(model_path, 'rb') as f:
+    cat_model = pickle.load(f)
+
+
+with open(scaler_path, 'rb') as f:
+    scaler = pickle.load(f)
+
 
 # Title
 st.title("House Price Predictor")
