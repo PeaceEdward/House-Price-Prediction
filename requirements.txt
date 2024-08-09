@@ -23,7 +23,7 @@ matplotlib==3.9.1.post1
 mdurl==0.1.2
 numpy
 packaging==24.1
-pandas==2.1.4
+pandas
 pillow==10.4.0
 pip==24.2
 plotly==5.23.0
@@ -38,8 +38,8 @@ referencing==0.35.1
 requests==2.32.3
 rich==13.7.1
 rpds-py==0.20.0
-scipy==1.13.1
-six==1.16.0
+scipy
+six
 smmap==5.0.1
 streamlit==1.37.1
 tenacity==8.5.0
