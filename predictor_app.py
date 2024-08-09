@@ -3,7 +3,10 @@ import joblib
 import pandas as pd
 import os
 import pickle
-from catboost import CatBoostRegressor
+#from catboost import CatBoostRegressor
+
+import catboost
+CatBoostRegressor = catboost.CatBoostRegressor
 
 model_path = os.path.abspath(os.path.join(os.getcwd(), "catboost_model.pkl"))
 scaler_path = os.path.abspath(os.path.join(os.getcwd(), "Scaler.pkl"))
