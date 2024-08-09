@@ -9,12 +9,12 @@ import catboost
 model_path = os.path.abspath(os.path.join(os.getcwd(), "catboost_model.pkl"))
 scaler_path = os.path.abspath(os.path.join(os.getcwd(), "Scaler.pkl"))
 
-# with open(model_path, 'rb') as f:
-#     cat_model = pickle.load(f)
+with open(model_path, 'rb') as model_file:
+    cat_model = pickle.load(model_file)
 
 # Load the model using CatBoost's method
-cat_model = CatBoostRegressor()
-cat_model.load_model(model_path)
+# cat_model = CatBoostRegressor()
+# cat_model.load_model(model_path)
 
 
 with open(scaler_path, 'rb') as f:
@@ -50,7 +50,7 @@ if st.button("Predict"):
     input_data_scaled = scaler.transform(input_data)
     
     # Predict the price
-    prediction = model.predict(input_data_scaled)[0]
+    prediction = cat_model.predict(input_data_scaled)[0]
     
     # Display the result
     st.success(f"Estimated Price: ${prediction:,.2f}")
